@@ -21,7 +21,8 @@ bool check(int matrix[3][3]) {
 
 int main() {
 	int matrix[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
-	while (0){
+	if (check(matrix)){
+		printf("TODO: implement iterating\n");
 	}
 	printf("found one:\n");
 	for (int i = 0; i < 3; i++) {
