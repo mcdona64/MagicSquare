@@ -13,7 +13,7 @@ int main() {
 	magic = new magicSquare();
 	signal(SIGINT, stop);
 	while (magic->checkRepeat() || !magic->check()){
-		magic->iterate();
+		magic->iterate2();
 	}
 	printf("found one:\n");
 	magic->print();

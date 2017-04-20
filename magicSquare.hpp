@@ -62,6 +62,17 @@ void iterate() {
 	matrix[r1][r2]++;
 
 }
+void iterate2() {
+	for(int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			matrix[i][j]++;
+			if (matrix[i][j]%10 != 0) {
+				return;
+			}
+		}
+	}
+
+}
 
 
 
