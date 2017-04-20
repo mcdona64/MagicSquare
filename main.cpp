@@ -3,6 +3,7 @@
 void stop(int sig) {
 	printf("stoped at:\n");
 	magic->print();
+	delete magic;
 	exit(0);
 }
 
@@ -11,10 +12,11 @@ void stop(int sig) {
 int main() {
 	magic = new magicSquare();
 	signal(SIGINT, stop);
-	while (!magic->check() || magic->checkRepeat()){
-		printf("TODO: implement iterating\n");
+	while (magic->checkRepeat() || !magic->check()){
+		magic->iterate();
 	}
 	printf("found one:\n");
 	magic->print();
+	delete magic;
 	exit(0);
 }

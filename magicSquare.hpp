@@ -16,19 +16,20 @@ void print() {
 };
 			
 bool check() {
+	int test[3][3];
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++){
-			matrix[i][j] = matrix[i][j]*matrix[i][j];
+			test[i][j] = matrix[i][j]*matrix[i][j];
 		}
 	}
-	int one = matrix[0][0]*matrix[1][0]*matrix[2][0];
-	int two = matrix[0][1]*matrix[1][1]*matrix[2][1];
-	int three = matrix[0][2]*matrix[1][2]*matrix[2][2];
-	int four = matrix[0][0]*matrix[0][1]*matrix[0][2];
-	int five = matrix[1][0]*matrix[1][1]*matrix[1][2];
-	int six = matrix[2][0]*matrix[2][1]*matrix[2][2];
-	int sevan = matrix[0][0]*matrix[1][1]*matrix[2][2];
-	int eight = matrix[0][2]*matrix[1][1]*matrix[2][0];
+	int one = test[0][0]*test[1][0]*test[2][0];
+	int two = test[0][1]*test[1][1]*test[2][1];
+	int three = test[0][2]*test[1][2]*test[2][2];
+	int four = test[0][0]*test[0][1]*test[0][2];
+	int five = test[1][0]*test[1][1]*test[1][2];
+	int six = test[2][0]*test[2][1]*test[2][2];
+	int sevan = test[0][0]*test[1][1]*test[2][2];
+	int eight = test[0][2]*test[1][1]*test[2][0];
 	
 	if(one != two || one != three || one != four || one != five ||
 			one != six || one != sevan || one != eight) {
@@ -43,9 +44,10 @@ bool checkRepeat(){
 		for (int j = 0; j < 3; j++){
 			for (int ii = 0; ii < 3; ii++) {
 				for (int jj = 0; jj < 3; jj++){
-					if (matrix[ii][jj] == matrix[i][j] 
-&& i != ii && j != jj){
-						return true;
+					if (matrix[ii][jj] == matrix[i][j] ){
+						if (ii != i || jj != j) {
+							return true;
+						}			
 					}
 				}
 			}
@@ -53,6 +55,15 @@ bool checkRepeat(){
 	}
 	return false;
 };
+
+void iterate() {
+	int r1 = rand() % 3;
+	int r2 = rand() % 3;
+	matrix[r1][r2]++;
+
+}
+
+
 
 	private:
 		int matrix[3][3]; 
