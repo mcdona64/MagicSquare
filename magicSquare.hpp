@@ -1,7 +1,26 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <signal.h>
 
-bool check(int matrix[3][3]) {
+
+class magicSquare {
+	public:
+
+void print() {	
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++){
+			printf("\t%d",matrix[i][j]);
+		}
+		printf("\n");
+	}
+};
+			
+bool check() {
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++){
+			matrix[i][j] = matrix[i][j]*matrix[i][j];
+		}
+	}
 	int one = matrix[0][0]*matrix[1][0]*matrix[2][0];
 	int two = matrix[0][1]*matrix[1][1]*matrix[2][1];
 	int three = matrix[0][2]*matrix[1][2]*matrix[2][2];
@@ -17,18 +36,25 @@ bool check(int matrix[3][3]) {
 	}
 	return true;
 	
-}
+};
 
-int main() {
-	int matrix[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
-	if (check(matrix)){
-		printf("TODO: implement iterating\n");
-	}
-	printf("found one:\n");
+bool checkRepeat(){
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++){
-			printf("\t%d",matrix[i][j]);
+			for (int ii = 0; ii < 3; ii++) {
+				for (int jj = 0; jj < 3; jj++){
+					if (matrix[ii][jj] == matrix[i][j] 
+&& i != ii && j != jj){
+						return true;
+					}
+				}
+			}
 		}
-		printf("\n");
 	}
-}
+	return false;
+};
+
+	private:
+		int matrix[3][3]; 
+	
+};

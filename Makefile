@@ -4,5 +4,5 @@ comit:
 	git commit -a -m 'Commit'
 	git push
 comp:
-	gcc -o magicSquare magicSquare.cpp -lstdc++
+	gcc -o magicSquare main.cpp main.hpp magicSquare.hpp -lstdc++
 	
